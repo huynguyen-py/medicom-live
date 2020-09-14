@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectPlainTextFileTypeManager">
+    <file url="file://$PROJECT_DIR$/post/migrations/0001_initial.py" />
+    <file url="file://$PROJECT_DIR$/post/migrations/0002_auto_20200804_2100.py" />
+    <file url="file://$PROJECT_DIR$/post/migrations/0003_auto_20200805_1719.py" />
+    <file url="file://$PROJECT_DIR$/post/migrations/0004_auto_20200805_1721.py" />
+    <file url="file://$PROJECT_DIR$/post/migrations/__init__.py" />
+  </component>
+  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.6 (MediCom)" project-jdk-type="Python SDK" />
+  <component name="PyCharmProfessionalAdvertiser">
+    <option name="shown" value="true" />
+  </component>
+</project>

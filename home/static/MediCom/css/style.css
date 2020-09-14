@@ -1,0 +1,199 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.service {
+    margin-top: 95px;
+}
+
+.time-work {
+    margin-top: 95px;
+}
+@import url('https://fonts.google.com/specimen/Ubuntu?selection.family=Ubuntu');
+
+html, body {
+    width: 100%;
+    height: 100%;
+    font-family: 'Ubuntu';
+    font-size: 15px;
+    color: #222;
+}
+.page-holder {
+    min-height: 100vh;
+}
+  
+.bg-cover {
+    background-size: cover !important;
+}
+
+.navbar {
+    background-color:  rgba(180, 180, 190, 0.9) !important;
+}
+.navbar li a {
+    color: white !important;
+}
+
+.navbar li a:hover{
+    color:  black !important;  
+}
+
+.carousel-inner img{
+    width: 100%;
+    height: 60%;
+}
+
+.carousel-caption {
+    position: absolute;
+    top: 47%;
+}
+
+.carousel-caption h1{
+    font-size: 650%;
+    text-shadow: 10px 10px 15px #000;
+}
+
+.carousel-caption h3{
+    font-size: 150%;
+    text-shadow: 5px 5px 15px #000;
+}
+
+.btn-primary {
+    background-color: rgb(180, 180, 190);
+    border: 1px solid white;
+}
+
+.btn-primary:hover {
+    background-color: rgb(160, 180, 190);
+    border: 1px solid white;
+}
+
+.jumbotron {
+    padding:  1rem;
+    border-radius: 0;
+}
+
+.container-fluid hr {
+    border-top:  2px solid rgba(62,44,100,0.9);
+    width: 95%;
+    margin-bottom: 2rem;
+}
+
+.social a{
+    font-size: 2em;
+    padding: 3rem;
+}
+hr.light {
+	border-top: 1px solid #d5d5d5;
+	width: 75%;
+}
+.light-100 {
+	border-top: 1px solid #d5d5d5;
+	width: 100%;
+}
+
+/*Media Query*/
+@media (max-width: 992px){
+    .carousel-caption {
+        top: 20%;
+    }
+    
+    .carousel-caption h1{
+        font-size: 350%;
+    }
+    
+    .carousel-caption h3{
+        font-size: 120%;
+    }
+
+    .carousel-caption .btn{
+        font-size: 120%;
+    }
+}
+
+@media (max-width: 768px){
+    .carousel-caption {
+        top: 20%;
+    }
+    
+    .carousel-caption h1{
+        font-size: 300%;
+    }
+    
+    .carousel-caption h3{
+        font-size: 100%;
+        padding-bottom: 0.2rem;
+    }
+
+    .carousel-caption .btn{
+        font-size: 95%;
+        padding: 8px 14px;
+    }
+}
+@media (max-width: 576px){
+    .carousel-caption {
+        top: 10%;
+    }
+    
+    .carousel-caption h1{
+        font-size: 250%;
+    }
+    
+    .carousel-caption h3{
+        font-size: 100%;
+    }
+
+    .carousel-caption .btn{
+        font-size: 90%;
+        padding: 4px 8px;
+    }
+}
+/*Category*/
+.category_list a{
+    color: black;
+    border: 1px solid black;
+    padding: 8px 7px;
+    background: #aeaeae;
+    color: white;
+    box-shadow: 0 0 2px #f5f5f5;
+    text-decoration: none;
+    border-radius: 5px;
+}
+.category_list{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
+
+}
+.category_list a:hover{
+    background: black;
+}
+.category_title h3{
+    text-align: center;
+    font-size: 250%;
+    font-family: 'Ubuntu';
+    margin-bottom: 20px;
+}
+/*Trending */
+
+.key-trending{
+     margin-top: 30px !important;
+     text-align: left !important;
+     padding-right: 30px !important;
+}
+
+/*FOOTER*/
+footer {
+	background-color: #3f3f3f;
+	color: #d5d5d5;
+}
+
+.time-work, .service{
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    padding: 10px 0px;
+    margin-bottom: 15px;
+}
+
+/*LOGIN-LOGOUT*/

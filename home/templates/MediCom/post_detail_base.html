@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>{% block title %}Posts...{% endblock %}</title>
+    {% block cssblock %}
+    {% endblock %}
+</head>
+<body style="background: url({% static 'MediCom/images/background.jpg' %})" class="page-holder bg-cover">
+  <!--Navigation-->
+{% include 'MediCom/navbar.html' %}
+    <!-------------->
+  <div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-9">
+                    {% block content %}
+                    {% endblock %}
+			</div>
+            <div class="col-sm-3">
+                    {% block something %}
+                    {% endblock %}
+            </div>
+        </div>
+  </div>
+
+  {% block usercomment %}
+  {% endblock %}
+
+
+{% block jsblock %}
+{% endblock %}
+
+{% include 'MediCom/footer.html' %}
+
+</body>
+</html>

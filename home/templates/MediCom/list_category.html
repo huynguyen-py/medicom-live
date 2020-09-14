@@ -1,0 +1,37 @@
+{% load static %}
+
+<div class="list_category">
+    <div class="menu_list">
+        {% if list_cat %}
+        <div class="btn_showList" id="accordion" data-toggle="collapse" href="#collapseOne">
+            <button onclick="" id="btn_showMenu">>></button>
+        </div>
+        <div id="collapseOne" class="container list-category collapse show">
+            <div class="category__title">
+                <h3>Category
+                    {% if user.is_superuser %}
+                    <a href="{% url 'add_category' %}"><span class="badge badge-pill badge-danger m-3">Add</span></a></h3>
+                    {% endif %}
+            </div>
+            <ul class="list-group mb-10 list-group-flush">
+                {% for item in list_cat.all %}
+                <a href="{% url 'category_detail' item.id%}"
+                   class="list-group-item">
+                    <div class="float-left">
+                        {{ item.name }}
+                    </div>
+                    <span class="badge badge-primary badge-pill float-right">
+                        {{ item.total_post}}
+                    </span>
+                </a>
+                {% endfor %}
+            </ul>
+            {% if user.is_authenticated %}
+            <div class="">
+                <a href="{% url 'add_post' %}"><center><span class="badge badge-pill badge-danger"><h3>Add New Post</h3></span></center></a>
+            </div>
+            {% endif %}
+        </div>
+        {% endif %}
+    </div>
+</div>

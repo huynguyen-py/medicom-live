@@ -1,0 +1,181 @@
+{% extends 'MediCom/homebase.html' %}
+{% load static %}
+{% block title %}Profile Admin{% endblock %}
+{% block cssblock %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+<link href="{% static 'MediCom/css/register_form.css' %}" rel="stylesheet">
+<link href="{% static 'MediCom/css/style.css' %}" rel="stylesheet">
+<style>
+    .social a{
+        font-size: 1em;
+        padding: 1rem;
+    }
+</style>
+{% endblock %}
+
+
+{% block content %}
+<div class="container mt-3 mb-3 shadow p-4 mb-4 bg-light">
+    <div class="row card-deck" >
+        <div class="col-sm-3 card ">
+            <img class="card-img-top img-thumbnail mt-3" src="{% static 'MediCom/images/avatar.jpg' %}" alt="Card image">
+            <div class="card-body">
+                <h4 class="card-title">Nguyễn Ngọc Huy</h4>
+                <p class="card-text"><pre>"I love coding,<br/>    doing research<br/>       and collaborating"</pre></p>
+            </div>
+        </div>
+        <div class="col-sm-9" >
+            <div class="card">
+                <div class="card-header"><h2>Mục Tiêu Nghề Nghiệp</h2></div>
+                <div class="card-body">
+                    <div class="card-text" >
+                        <p>Mình coi lập trình là con đường giúp thực hiện được ước mơ tạo ra những sản phẩm
+                            kĩ thuật ứng dụng công nghệ sau khi đã lập ý tưởng và kế hoạch cụ thể. Mình may mắn biết đến
+                            Python cùng các Framework của nó thông qua tự trao dồi và học tập trong hơn 8 tháng gần đây.</p>
+                        <p> Sau gần ba năm ở môi trường đại học, mình đã sẵn sàng để học những điều mới. Mình thích cộng
+                            tác và chia sẻ kinh nghiệm của mình với những người khác trên blog và các kênh youtube lập
+                            trình.</p>
+                        <p> Ngoài việc xây dựng các dự án nhỏ, mình muốn được vào vị trí mà mình có thể là một phần của
+                            một đội lớn hơn và học hỏi từ những người khác có nhiều kinh nghiệm hơn bản thân.</p>
+                        <p> Mục tiêu
+                            duy nhất là trở thành một kĩ sư, chuyên gia công nghệ cao và lực lượng nòng cốt cống hiến
+                            hết
+                            mình
+                            cho lợi ích của công ty cũng như nền công nghệ của Việt Nam. </p>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="col-12 social padding" >
+                        <a href="https://www.facebook.com/huy1706701"><i
+                                class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-google-plus-g"></i></a>
+                        <a href="https://www.instagram.com/huyy__/?fbclid=IwAR2iGz9r54t8hy9pdH4LFPfWhKQApAnUktrJ6UBhk0Vu4lRW-94msQulyHc"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-3 mb-3">
+        <div class="col-sm-6">
+          <div class="card">
+                <div class="card-header"><h2>Đánh giá kỹ thuật bản thân</h2></div>
+                <div class="card-body">
+                    <div class="card-text">
+                        <p class="font-weight-bolder">Python</p>
+                        <div class="progress m-2" style="height:10px">
+                            <div class="progress-bar" style="width:65%;height:10px"></div>
+                        </div>
+                        <p class="font-weight-bolder">C#, Java (đánh giá với yêu cầu chung của trường học) </p>
+                        <div class="progress m-auto" style="height:10px">
+                            <div class="progress-bar" style="width:80%;height:10px"></div>
+                        </div>
+                        <p class="font-weight-bolder">Django</p>
+                        <div class="progress  m-2" style="height:10px">
+                            <div class="progress-bar" style="width:40%;height:10px"></div>
+                        </div>
+                        <p class="font-weight-bolder">Machine learning algorithms </p>
+                        <div class="progress m-2" style="height:10px">
+                            <div class="progress-bar" style="width:40%;height:10px"></div>
+                        </div>
+                        <p class="font-weight-bolder">PostgreSQL, MySQL</p>
+                        <div class="progress m-2" style="height:10px">
+                            <div class="progress-bar" style="width:30%;height:10px"></div>
+                        </div>
+                        <p class="font-weight-bolder">SQL server</p>
+                        <div class="progress m-auto" style="height:10px">
+                            <div class="progress-bar" style="width:80%;height:10px"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-header"><h2>Những gì mà tôi biết</h2></div>
+                <div class="card-body">
+                    <div class="card-text">
+                        <dl>
+                            <dt>Ngôn ngữ lập trình</dt>
+                            <dd>- Python, base Java (Java swing,..), base C# (Windows form,.. ), base C/C++</dd>
+                            <dt>Kỹ năng khác</dt>
+                            <dd>- Framework: Django, Bootstrap</dd>
+                            <dd>- Cơ sở dữ liệu: PostgreSQL, MySQL, SQL server</dd>
+                            <dt>Kỹ năng mềm</dt>
+                            <dd>-  Có tư duy logic tốt, giải quyết vấn đề rõ ràng và tiếp thu được ý kiến của cộng sự.</dd>
+                            <dd>-  Có khả năng diễn đạt, trao đổi với cộng sự, diễn đạt vấn đề và ý kiến riêng của mình cho người đối diện hiểu </dd>
+                            <dd>-  Kỹ năng tốt về thu thập, tổng hợp thông tin và đánh giá vấn đề, xây dựng cơ sở dữ liệu của bài toán</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 mt-3">
+            <div class="card">
+                <div class="card-header"><h2>Cách tôi học</h2></div>
+                <div class="card-body">
+                    <div class="card-text">
+                        <dl>
+                            <dt>Khi gặp bài toán, công nghệ mới</dt>
+                            <dd>- Tôi sẽ dành ra từng giai đoạn như tìm hiểu, đánh giá, chia nhỏ bài toán, giải quyết vấn đề.</dd>
+                            <dt>Khi vấn đề đã có kinh nghiệm</dt>
+                            <dd>- Nhận định được nguyên lý hoạt động, tổ chức của vấn đề và bắt đầu chia nhỏ xử lý bài toán được đặt ra </dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 mt-3">
+            <div class="card">
+                <div class="card-header"><h2>Kinh nghiệm của tôi khi là sinh viên</h2></div>
+                <div class="card-body">
+                    <div class="card-text">
+                        <dl>
+                            <dd>-	<strong>Tháng 4, 5 năm 2019:</strong> Gia sư riêng về sử dụng tin học văn phòng cho người già.</dd>
+                            <dd>-	<strong>Tháng 11 năm 2019:</strong> Nhân viên part-time cho Chi cục thuế Quận Bình thủy về nhập liệu, thống kê.</dd>
+                            <dd>-	<strong>Tháng 7, 8 năm 2020:</strong> Gia sư riêng về thi chứng chỉ Tin học văn phòng căn bản.</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+
+{% block jsblock %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+<script>
+		//Query All input fields
+		var form_fields = document.getElementsByTagName('input')
+
+		form_fields[2].placeholder='Username...';
+		form_fields[3].placeholder='Email...';
+		form_fields[4].placeholder='D.O.B...';
+		form_fields[5].placeholder='Enter password...';
+		form_fields[6].placeholder='Re-enter Password...';
+
+
+		for (var field in form_fields){
+			form_fields[field].className += ' form-control'
+		}
+
+</script>
+
+{% endblock %}

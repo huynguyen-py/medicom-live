@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>{% block title %}MediCom{% endblock %}</title>
+    {% block cssblock %}
+    {% endblock %}
+</head>
+
+<body style="background: url({% static 'MediCom/images/background.jpg' %})" class="page-holder bg-cover">
+  <!--Navigation-->
+{% include 'MediCom/navbar.html' %}
+    <!-------------->
+
+<!--  content -->
+      {% block content %}
+      {% endblock %}
+
+{% block jsblock %}
+{% endblock %}
+
+{% include 'MediCom/footer.html' %}
+</body>
+</html>

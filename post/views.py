@@ -14,7 +14,7 @@ class Posts(View):
     def get(self, request):
         lst_category = models.Category.objects.all()
         lst_post = models.Post.objects.all()
-        return render(request, 'Medicom/posts.html', {'list_cat': lst_category, 'list_p': lst_post})
+        return render(request, 'MediCom/posts.html', {'list_cat': lst_category, 'list_p': lst_post})
 
 
 def Post_Detail(request, Post_Id):
@@ -23,7 +23,7 @@ def Post_Detail(request, Post_Id):
     lst_post_same = models.Post.objects.filter(category=post.category)
     form = forms.CommentForm()
     context = {'form_comment': form, 'lst_post_same': lst_post_same, 'post': post}
-    return render(request, 'Medicom/post_content_detail.html', context)
+    return render(request, 'MediCom/post_content_detail.html', context)
 
 
 class SiteAddPost(LoginRequiredMixin, CreateView):
@@ -34,14 +34,14 @@ class SiteAddPost(LoginRequiredMixin, CreateView):
 
 class SiteUpdatePost(LoginRequiredMixin, UpdateView):
     model = models.Post
-    template_name = 'Medicom/post_update.html'
+    template_name = 'MediCom/post_update.html'
     form_class = UpdatePostForm
     #success_url = reverse_lazy('posts/<int:pk>')
 
 
 class SiteDeletePost(LoginRequiredMixin, DeleteView):
     model = models.Post
-    template_name = 'Medicom/post_delete.html'
+    template_name = 'MediCom/post_delete.html'
     success_url = reverse_lazy('home')
 
 #================= CATEGORY======================
@@ -51,7 +51,7 @@ def Category_Detail(request, Category_Id):
     cat_id = models.Category.objects.get(id=Category_Id)
     lst_category = models.Category.objects.all()
     lst_post = models.Post.objects.filter(category=Category_Id)
-    return render(request, 'Medicom/posts_category_detail.html',  {'cat_id': cat_id, 'list_p': lst_post, 'list_cat': lst_category})
+    return render(request, 'MediCom/posts_category_detail.html',  {'cat_id': cat_id, 'list_p': lst_post, 'list_cat': lst_category})
 
 
 class SiteAddCate(LoginRequiredMixin, CreateView):
@@ -62,12 +62,12 @@ class SiteAddCate(LoginRequiredMixin, CreateView):
 
 class SiteUpdateCate(LoginRequiredMixin, UpdateView):
     model = models.Category
-    template_name = 'Medicom/category_update.html'
+    template_name = 'MediCom/category_update.html'
     form_class = UpdateCateForm
     #success_url = reverse_lazy('category/<int:pk>')
 
 
 class SiteDeleteCate(LoginRequiredMixin, DeleteView):
     model = models.Category
-    template_name = 'Medicom/category_delete.html'
+    template_name = 'MediCom/category_delete.html'
     success_url = reverse_lazy('home')

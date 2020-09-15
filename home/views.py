@@ -10,10 +10,8 @@ from post.forms import CreatePostForm
 
 
 class Home(View):
-
     def get(self, request):
         lst_post = models.Post.objects.filter(date__month= 8)
         lst_category = models.Category.objects.all()
-        return render(request, 'Medicom/index.html', {'list_p': lst_post, 'list_cat': lst_category})
-
+        return render(request, 'MediCom/index.html', {'list_p': lst_post, 'list_cat': lst_category})
 

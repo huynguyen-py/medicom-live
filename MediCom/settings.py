@@ -77,6 +77,10 @@ TEMPLATES = [
     },
 ]
 
+TEMPLATE_DIRS = (
+    os.path.join(os.path.dirname(__file__), 'templates/home'),
+)
+
 WSGI_APPLICATION = 'MediCom.wsgi.application'
 
 

@@ -32,19 +32,6 @@ class Post(models.Model):
     def get_absolute_url(self):
         return reverse('home')
 
-# class Content(models.Model):
-#     post_id = models.ForeignKey(Post, on_delete=models.CASCADE)
-#     number_para = models.IntegerField()
-#     data = models.TextField()
-#     img = models.ImageField(upload_to='home/media/post_picture', blank=True)
-#     img_title = models.CharField(max_length=255)
-#
-#     class Meta:
-#         unique_together = (("post_id", "number_para"),)
-#
-#     def __str__(self):
-#         return self.img_title
-#
 
 class Comment(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)

@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '4tga#23rar7o6e#6af(8s+-be!#)90@$#$)pyd^11ro-&rau1c'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['medicom-live2.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['medicom-live.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -95,6 +95,9 @@ DATABASES = {
     }
 }
 
+import dj_database_url
+db_from_env = dj_database_url.config(conn_max_age=600)
+DATABASES['default'].update(db_from_env)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -160,5 +163,4 @@ AUTHENTICATION_BACKENDS = (
   'django.contrib.auth.backends.RemoteUserBackend',
   'django.contrib.auth.backends.ModelBackend',
 )
-
 CKEDITOR_UPLOAD_PATH = 'uploads/'

@@ -11,11 +11,8 @@ from post.forms import CreatePostForm
 
 class Home(View):
     def get(self, request):
-        lst_post = models.Post.objects.filter(date__month= 8)
+        # lst_post = models.Post.objects.filter(date__month= 8)
+        lst_post = models.Post.objects.all()
         lst_category = models.Category.objects.all()
         return render(request, 'MediCom/index.html', {'list_p': lst_post, 'list_cat': lst_category})
-<<<<<<< HEAD
-=======
-
->>>>>>> d2013c749089a29e6942c3da90d8e3e21cc39a63
 

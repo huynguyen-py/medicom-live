@@ -15,4 +15,3 @@ class Home(View):
         lst_post = models.Post.objects.all()
         lst_category = models.Category.objects.all()
         return render(request, 'MediCom/index.html', {'list_p': lst_post, 'list_cat': lst_category})
-

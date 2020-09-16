@@ -14,4 +14,8 @@ class Home(View):
         lst_post = models.Post.objects.filter(date__month= 8)
         lst_category = models.Category.objects.all()
         return render(request, 'MediCom/index.html', {'list_p': lst_post, 'list_cat': lst_category})
+<<<<<<< HEAD
+=======
+
+>>>>>>> d2013c749089a29e6942c3da90d8e3e21cc39a63
 

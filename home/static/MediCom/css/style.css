@@ -45,12 +45,27 @@ html, body {
 
 .carousel-caption {
     position: absolute;
-    top: 47%;
+    top: 40%;
+    right:60%;
+}
+
+.carousel-caption-2 {
+    position: absolute;
+    top: 30%;
+    right: 60%;
+    left:12%;
+}
+.carousel-caption-2 h1{
+    font-size: 300%;
+    text-shadow: 10px 10px 15px #000;
+    color: #FFFFFF;
+    line-height: 1.2;
 }
 
 .carousel-caption h1{
     font-size: 650%;
     text-shadow: 10px 10px 15px #000;
+    right:70%;
 }
 
 .carousel-caption h3{
@@ -59,12 +74,12 @@ html, body {
 }
 
 .btn-primary {
-    background-color: rgb(180, 180, 190);
+    background-color: rgb(128, 128, 128);
     border: 1px solid white;
 }
 
 .btn-primary:hover {
-    background-color: rgb(160, 180, 190);
+    background-color: rgb(211, 211, 211);
     border: 1px solid white;
 }
 

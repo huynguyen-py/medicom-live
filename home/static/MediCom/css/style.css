@@ -186,10 +186,30 @@ hr.light {
 }
 .category_title h3{
     text-align: center;
-    font-size: 250%;
     font-family: 'Ubuntu';
-    margin-bottom: 20px;
+    margin-bottom: 5px;
+	font-size:36px;
+	font-weight:500;
+	line-height:48px;
+	color: #1F1F1F;
+	position: relative;
+	z-index: 9;
+	padding-bottom:3px;
 }
+
+.section_title{
+    font-size:16px;
+	font-weight: 300;
+	line-height: 28px;
+	color: #4D4D4D;
+	margin-bottom: 13px;
+	font-family: "Poppins", sans-serif
+}
+
+.category_card{
+    margin: 5px 0px;
+}
+
 /*Trending */
 
 .key-trending{

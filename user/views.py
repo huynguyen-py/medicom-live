@@ -1,11 +1,11 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm, UsernameField
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView, LogoutView
 from django.shortcuts import redirect
 from django.urls import reverse
 from django.views.generic import TemplateView, FormView
 from user.models import User
+from user.forms import MyLoginForm, RegisterForm
 
 # Create your views here.
 
@@ -16,21 +16,11 @@ class AdminCvView(TemplateView):
 
 class SiteLoginView(LoginView):
     template_name = 'MediCom/user_login.html'
+    form_class = MyLoginForm
 
 
 class SiteProfileView(LoginRequiredMixin, TemplateView):
     template_name = 'MediCom/user_profile.html'
-
-
-class RegisterForm(UserCreationForm):
-    # email = forms.EmailFields(required=True,widget= forms.EmailInput(attrs={'required': True}))
-    class Meta:
-        model = User
-        fields = {'username', 'email', 'address', 'phone_number', 'dob', 'passport'}
-        fields_classes = {'username': UsernameField}
-        widget = {
-            'email': forms.EmailInput(attrs={'required': True})
-        }
 
 
 class SiteRegisterView(FormView):
@@ -44,10 +34,7 @@ class SiteRegisterView(FormView):
             username=data['username'],
             password=data['password1'],
             email=data['email'],
-            address=data['address'],
-            phone_number=data['phone_number'],
-            dob=data['dob'],
-            passport=data['passport']
+            dob=data['dob']
         )
         self.new_user.is_staff = True
         # self.new_user.is_superuser = True

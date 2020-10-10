@@ -11,9 +11,8 @@
 {% block title %} User Profile {% endblock %}
 
 {% block content %}
-<div class="container-fluid">
-    <div class="row m-3 p-3">
-        <div class="col-lg-4"></div>
+<div class="container-fluid h-100">
+    <div class="row p-3" style="margin-top: 5%;">
         <div class="col-lg-4">
             <h1>Edit Your Profile</h1>
             <p>Login with user: {{user.username}}</p>
@@ -23,7 +22,6 @@
 
             <p><a href="{% url 'logout' %}" class="btn btn-danger">Logout</a></p>
         </div>
-        <div class="col-lg-4"></div>
     </div>
 </div>
 

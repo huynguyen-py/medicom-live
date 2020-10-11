@@ -28,7 +28,7 @@ html, body {
 }
 
 .navbar {
-    background-color: #008B8B !important;
+    background-color: #17a2b8 !important;
     opacity: 0.7;
 }
 .navbar li a {
@@ -221,9 +221,10 @@ hr.light {
 
 /*FOOTER*/
 footer {
-	background-color: #008B8B;
+	background-color: #17a2b8;
 	color: white;
 	opacity: 0.9;
+	width: 100% !important;
 }
 
 .time-work, .service{

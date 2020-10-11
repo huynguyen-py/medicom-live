@@ -16,7 +16,7 @@
 
 {% block content %}
 <div class="container-fluid">
-    <div class="content shadow-lg p-4 m-3 bg-light">
+    <div class="content-post shadow-lg p-4 m-3 bg-light">
         <div class="header_post p-4 row">
             <div class="col-lg-6 col-md-6 col-xs-12 p-4">
                 <h2>{{ post.title }}</h2>
@@ -36,16 +36,6 @@
 
         </div>
         {{post.body|safe}}
-
-        <!-- Content -->
-<!--        {% for item in lst_content %}-->
-<!--        <h5 class="font-weight-bold"> {{ item.number_para }}. {{item.img_title}}</h5>-->
-<!--        <h6 class="font-weight-normal">{{item.data}}</h6>-->
-<!--        {% if item.img  %}-->
-<!--        <img class="img-fluid mx-auto d-block" src="{{ item.img.url }}" alt="" width="400px">-->
-<!--        {% endif %}-->
-<!--        <br/>-->
-<!--        {% endfor %}-->
     </div>
 
     <!-- same category post-->

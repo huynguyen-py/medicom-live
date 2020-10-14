@@ -20,15 +20,23 @@
         <div class="header_post p-4 row">
             <div class="col-lg-6 col-md-6 col-xs-12 p-4">
                 <h2>{{ post.title }}</h2>
-                {% if user.is_authenticated and user.id == post.author.id %}
-                <a href="{% url 'update_post' post.id %}"> <span class="badge badge-pill badge-danger">Edit</span></a>
-                <a href="{% url 'delete_post' post.id %}">  <span class="badge badge-pill badge-danger">Delete</span></a>
-                {% endif %}
                 <ul>
                     <li>Author: <a href=""> {{ post.author }}</a></li>
                     <li>Date: {{ post.date }}</li>
-                    <li>Vote: {{ post.vote}} <i class="fas fa-thumbs-up pl-2"></i></li>
+                    <li>Vote:   likes</li>
                 </ul>
+                <form action="{% url 'like_post' post.pk %}" method="POST">
+                            {% csrf_token %}
+                            <button class="btn btn-primary btn-sm" type="submit" name="post_id" value="{{ post.id }}">
+                                <i class="fas fa-thumbs-up pl-2"></i> Like
+                            </button>
+                            {% if user.is_authenticated and user.id == post.author.id %}
+                            <a href="{% url 'update_post' post.id %}"> <span
+                                    class="btn btn-primary btn-sm">Edit</span></a>
+                            <a href="{% url 'delete_post' post.id %}"> <span
+                                    class="btn btn-primary btn-sm">Delete</span></a>
+                            {% endif %}
+                </form>
             </div>
             <div class="col-6">
                 <img class="img-fluid float-right" src="{{ post.img_main.url }}" alt="" width="200px">
@@ -86,34 +94,28 @@
         <div class="col-lg-9 col-md-12 col-xs-12 comment-view border border-dark p-4 m-4">
             <form action="" method="POST">
                 {% csrf_token %}
-                <div class="form-group">
-                    <label >Write comment:</label>
-                    {{ form_comment.content }}
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                <div class="form-group" >
+                    <label >Write something:</label>
+                    {{ form_comment }}
+                    <button type="submit" class="btn btn-primary">Comment</button>
                 </div>
             </form>
-
+            {% for comment in lst_comment%}
             <div class="media p-3">
               <img src="{% static 'MediCom/images/doctor-member.jpg' %}" alt="John Doe" class="mr-3 mt-3 rounded-circle" style="width:60px;">
               <div class="media-body">
-                  <h4>John Doe <small><i>Posted on February 19, 2016</i></small></h4>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi commodi eum unde voluptates. Autem cupiditate delectus explicabo porro, ullam ut voluptates. Assumenda, dolorum eos nobis odit perspiciatis porro ullam vel!</p>
+                  <h4>{{ comment.author }} <small><i>{{ comment.date }}</i></small></h4>
+                  <p>{{ comment.content }}</p>
                   <div class="p-0">
                       <p class="">
-                          <a href=""> 10 <i class="fas fa-thumbs-up pl-2"></i></a>
+                          <a href=""> {{ comment.vote }} <i class="fas fa-thumbs-up pl-2"></i></a>
                           <a href=""> Reply </i></a>
                           <a href=""> Share</a>
                       </p>
                   </div>
-                  <div class="media p-3">
-                      <img src="{% static 'MediCom/images/doctor-member.jpg' %}" alt="Jane Doe" class="mr-3 mt-3 rounded-circle" style="width:45px;">
-                      <div class="media-body">
-                        <h4>Jane Doe <small><i>Posted on February 20 2016</i></small></h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid aperiam autem dolore dolorum eligendi, eveniet expedita facere in itaque minus mollitia nihil, nulla officia officiis, provident quas rem sit voluptatibus?</p>
-                      </div>
-                  </div>
               </div>
             </div>
+            {% endfor %}
         </div>
     </div>
 {% endblock %}
@@ -124,4 +126,11 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script>
+         var name = '{{ user.id }}';
+         var post = '{{ post.id }}';
+        document.getElementById("elder").value = name;
+        document.getElementById("post_id").value = post;
+
+    </script>
 {% endblock %}

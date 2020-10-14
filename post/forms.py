@@ -8,10 +8,14 @@ from django.db import models
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
-        fields = ['content']
+        fields = ['content', 'post', 'author']
         widgets = {
-            'content': forms.TextInput(attrs={"class": "forms-control"})
+            'content': forms.TextInput(attrs={"class": "form-control"}),
+            'post': forms.TextInput(attrs={'class': 'form-control', 'value': '', 'id': 'post_id', 'type': 'hidden'}),
+            'author': forms.TextInput(attrs={'class': 'form-control', 'value': '', 'id': 'elder', 'type': 'hidden'}),
         }
+
+
 
 #================= POST ======================
 
@@ -24,7 +28,8 @@ class CreatePostForm(forms.ModelForm):
         fields = ['title', 'author', 'description', 'img_main', 'category', 'body']
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-control'}),
-            'author': forms.Select(attrs={'class': 'form-control'}),
+            'author': forms.TextInput(attrs={'class': 'form-control', 'value': '', 'id': 'elder', 'type': 'hidden'}),
+            # 'author': forms.Select(attrs={'class': 'form-control'}),
             'description': forms.TextInput(attrs={'class': 'form-control'}),
             'category': forms.Select(attrs={'class': 'form-control'}),
         }

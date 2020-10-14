@@ -18,18 +18,19 @@ class Category(models.Model):
 
 class Post(models.Model):
     title = models.CharField(max_length=255)
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="Post_as_author")
     date = models.DateField(default=timezone.now)
     description = models.TextField(max_length=800)
-    vote = models.IntegerField(default=0, blank=True)
     img_main = models.ImageField(upload_to='post_picture', height_field=None, width_field=None, blank=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     body = RichTextField(null=True, blank=True, default="Body post")
+    something = models.IntegerField(default=0, blank=True)
 
     def __str__(self):
         return self.title
 
-    def get_absolute_url(self):
+    @staticmethod
+    def get_absolute_url():
         return reverse('home')
 
 
@@ -38,8 +39,8 @@ class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     date = models.DateTimeField(default=timezone.datetime.now())
     content = models.CharField(max_length=2000)
-    vote = models.IntegerField(default=0)
-    reply_comment = models.ForeignKey("self", on_delete=models.CASCADE, blank=True)
+    #vote = models.IntegerField(default=0, blank=True)
+    #reply_comment = models.ForeignKey("self", on_delete=models.CASCADE, blank=True)
 
     def __str__(self):
         return self.content

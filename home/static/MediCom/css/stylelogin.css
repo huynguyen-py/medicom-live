@@ -12,7 +12,7 @@
     width: 222px !important;
     margin: 35px auto;
     position: relative;
-    box-shadow: 0 0 20px 9px #ff61241f;
+    box-shadow: 0 0 20px 9px #A095C4;
     border-radius: 30px;
 }
 .toggle-btn{
@@ -29,7 +29,7 @@
     position: absolute !important;
     width: 110px !important;
     height: 100% !important;
-    background: linear-gradient(to right, #ff105f 30%,#ffad06 50%) !important; /* W3C */
+    background: linear-gradient(to top, #184785 30%, #7f59e3 80%); !important; /* W3C */
     border-radius: 30px !important;
     transition: .5s !important;
 }
@@ -67,7 +67,7 @@
     cursor:pointer;
     display: block;
     margin: auto;
-    background: linear-gradient(to right, #ff105f 30%,#ffad06 50%); /* W3C */
+    background: linear-gradient(to top, #184785 30%, #7f59e3 80%); /* W3C */
     border: 0;
     outline: none;
     border-radius: 30px;

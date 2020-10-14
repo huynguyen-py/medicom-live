@@ -28,8 +28,8 @@ html, body {
 }
 
 .navbar {
-    background-color: #17a2b8 !important;
-    opacity: 0.7;
+    background: linear-gradient(to top, #9a9ba8 30%, #473C8B 80%) !important;
+    opacity: 0.8;
 }
 .navbar li a {
     color: white !important;
@@ -221,7 +221,7 @@ hr.light {
 
 /*FOOTER*/
 footer {
-	background-color: #17a2b8;
+	background: linear-gradient(to bottom, #9a9ba8 30%, #473C8B 80%);
 	color: white;
 	opacity: 0.9;
 	width: 100% !important;

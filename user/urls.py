@@ -1,9 +1,6 @@
 from django.urls import path
-
-from . import views
-from post import views as views_post
 from user.views import SiteLoginView, SiteProfileView, SiteLogoutView, SiteRegisterView, AdminCvView
-from django.urls import include
+
 urlpatterns = [
     #path('MediUser/', views_post),
     path('profileAdmin/', AdminCvView.as_view(), name="admin_cv"),

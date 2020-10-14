@@ -24,7 +24,7 @@ class Post(models.Model):
     img_main = models.ImageField(upload_to='post_picture', height_field=None, width_field=None, blank=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     body = RichTextField(null=True, blank=True, default="Body post")
-    something = models.IntegerField(default=0, blank=True)
+    #something = models.IntegerField(default=0, blank=True)
 
     def __str__(self):
         return self.title

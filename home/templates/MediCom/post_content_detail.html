@@ -23,13 +23,19 @@
                 <ul>
                     <li>Author: <a href=""> {{ post.author }}</a></li>
                     <li>Date: {{ post.date }}</li>
-                    <li>Vote:   likes</li>
+                    <li>- {{ total_likes }} - Likes</li>
                 </ul>
                 <form action="{% url 'like_post' post.pk %}" method="POST">
                             {% csrf_token %}
+                            {% if liked %}
+                            <button class="btn btn-danger btn-sm" type="submit" name="post_id" value="{{ post.id }}">
+                                <i class="fas fa-thumbs-down pl-2"></i> Unlike
+                            </button>
+                            {% else %}
                             <button class="btn btn-primary btn-sm" type="submit" name="post_id" value="{{ post.id }}">
                                 <i class="fas fa-thumbs-up pl-2"></i> Like
                             </button>
+                            {% endif %}
                             {% if user.is_authenticated and user.id == post.author.id %}
                             <a href="{% url 'update_post' post.id %}"> <span
                                     class="btn btn-primary btn-sm">Edit</span></a>

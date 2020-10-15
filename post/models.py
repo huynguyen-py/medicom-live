@@ -26,7 +26,7 @@ class Post(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     body = RichTextField(null=True, blank=True, default="Body post")
     #something = models.IntegerField(default=0, blank=True)
-    users_like = models.ManyToManyField(User)
+    #users_like = models.ManyToManyField(User)
 
     def total_likes(self):
         return self.users_like.count()

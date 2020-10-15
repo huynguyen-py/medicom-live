@@ -25,8 +25,8 @@ class Post(models.Model):
     img_main = models.ImageField(upload_to='post_picture', height_field=None, width_field=None, blank=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     body = RichTextField(null=True, blank=True, default="Body post")
-    #something = models.IntegerField(default=0, blank=True)
-    #users_like = models.ManyToManyField(User)
+    something = models.IntegerField(default=0, blank=True)
+    users_like = models.ManyToManyField(User)
 
     def total_likes(self):
         return self.users_like.count()

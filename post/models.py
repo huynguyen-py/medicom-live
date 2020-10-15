@@ -5,6 +5,7 @@ from user.models import User
 from django.utils import timezone
 from ckeditor.fields import RichTextField
 
+
 # Create your models here.
 
 
@@ -24,7 +25,11 @@ class Post(models.Model):
     img_main = models.ImageField(upload_to='post_picture', height_field=None, width_field=None, blank=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     body = RichTextField(null=True, blank=True, default="Body post")
-    #something = models.IntegerField(default=0, blank=True)
+    something = models.IntegerField(default=0, blank=True)
+    users_like = models.ManyToManyField(User)
+
+    def total_likes(self):
+        return self.users_like.count()
 
     def __str__(self):
         return self.title
@@ -39,10 +44,8 @@ class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     date = models.DateTimeField(default=timezone.datetime.now())
     content = models.CharField(max_length=2000)
-    #vote = models.IntegerField(default=0, blank=True)
-    #reply_comment = models.ForeignKey("self", on_delete=models.CASCADE, blank=True)
+    vote = models.IntegerField(default=0, blank=True)
+    # reply_comment = models.ForeignKey("self", on_delete=models.CASCADE, blank=True)
 
     def __str__(self):
         return self.content
-
-

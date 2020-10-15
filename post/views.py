@@ -16,17 +16,26 @@ class Posts(View):
     def get(request):
         lst_category = models.Category.objects.all()
         lst_post = models.Post.objects.all()
-        # lst_post = models.Post.objects.filter(lst_category[])
+        # lst_post = models.Post .objects.filter(lst_category[])
         return render(request, 'MediCom/posts.html', {'list_cat': lst_category, 'list_p': lst_post})
 
 
-class post_detail_test(View):
+class post_detail(View):
     def get(self, request, Post_Id):
         post = models.Post.objects.get(pk=Post_Id)
         lst_post_same = models.Post.objects.filter(category=post.category)
         lst_comment = models.Comment.objects.filter(post=post.id).order_by('-date')  # get list comment and sort them
         form = forms.CommentForm()
-        context = {'form_comment': form, 'lst_post_same': lst_post_same, 'post': post, 'lst_comment': lst_comment}
+
+        stuff = get_object_or_404(models.Post, id=self.kwargs['Post_Id'])
+        total_likes = stuff.total_likes()
+
+        liked = False
+        if stuff.users_like.filter(id=self.request.user.id).exists():
+            liked = True
+
+        context = {'form_comment': form, 'lst_post_same': lst_post_same, 'post': post, 'lst_comment': lst_comment,
+                   'total_likes': total_likes, 'liked': liked}
         return render(request, 'MediCom/post_content_detail.html', context)
 
     def post(self, request, *args, **kwargs):
@@ -61,9 +70,15 @@ class SiteDeletePost(LoginRequiredMixin, DeleteView):
 
 
 def LikeView(request, pk):
-    post = get_object_or_404(models.Post, id=request.POST.get('post_id'))
-    post.likes.add(request.user)
-
+    post = get_object_or_404(models.Post, id=request.POST.get('post_id'))  # get id của button có name là post_id
+    liked = False
+    if post.users_like.filter(id=request.user.id).exists():
+        post.users_like.remove(request.user)
+        liked = False
+    else:
+        post.users_like.add(request.user)
+        liked = True
+    return HttpResponseRedirect(reverse('post_detail', args=[str(pk)]))  # page previous
 
 # ================= CATEGORY======================
 

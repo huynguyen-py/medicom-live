@@ -25,9 +25,9 @@
 }
 #btn{
     top: 0 !important;
-    left: 0 !important;
+    left: 120px !important;
     position: absolute !important;
-    width: 110px !important;
+    width: 120px !important;
     height: 100% !important;
     background: linear-gradient(to top, #184785 30%, #7f59e3 80%); !important; /* W3C */
     border-radius: 30px !important;

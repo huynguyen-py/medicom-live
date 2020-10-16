@@ -16,6 +16,10 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
+    @staticmethod
+    def get_absolute_url():
+        return reverse('post')
+
 
 class Post(models.Model):
     title = models.CharField(max_length=255)

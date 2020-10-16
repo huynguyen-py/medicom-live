@@ -72,3 +72,17 @@
 	text-transform: uppercase;
 	text-shadow: 0 2px white, 0 3px #777;
 }
+
+.form-cat-add, .form-cat-delete, .form-cat-update{
+    margin-top: 10% !important;
+    position: relative;
+	justify-content: center;
+
+}
+
+.form-post-add, .form-post-delete, .form-post-update{
+    margin-top: 10% !important;
+    position: relative;
+	justify-content: center;
+
+}

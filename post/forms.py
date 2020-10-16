@@ -2,7 +2,8 @@ from django import forms
 from .models import Comment, Post, Category
 from django.db import models
 
-#================= COMMENT ======================
+
+# ================= COMMENT ======================
 
 
 class CommentForm(forms.ModelForm):
@@ -10,14 +11,15 @@ class CommentForm(forms.ModelForm):
         model = Comment
         fields = ['content', 'post', 'author']
         widgets = {
-            'content': forms.TextInput(attrs={"class": "form-control"}),
-            'post': forms.TextInput(attrs={'class': 'form-control', 'value': '', 'id': 'post_id', 'type': 'hidden'}),
-            'author': forms.TextInput(attrs={'class': 'form-control', 'value': '', 'id': 'elder', 'type': 'hidden'}),
+            'content': forms.TextInput(attrs={"class": "form-control", "name": "content"}),
+            'post': forms.TextInput(attrs={'class': 'form-control', 'value': '', 'id': 'post_id', 'type': 'hidden'
+                , "name": "post"}),
+            'author': forms.TextInput(attrs={'class': 'form-control', 'value': '', 'id': 'elder', 'type': 'hidden'
+                , "name": "author"}),
         }
 
 
-
-#================= POST ======================
+# ================= POST ======================
 
 
 class CreatePostForm(forms.ModelForm):
@@ -46,7 +48,8 @@ class UpdatePostForm(forms.ModelForm):
             'description': forms.TextInput(attrs={'class': 'form-control'}),
         }
 
-#================= CATEGORY======================
+
+# ================= CATEGORY======================
 
 
 class CreateCateForm(forms.ModelForm):
@@ -59,7 +62,6 @@ class CreateCateForm(forms.ModelForm):
 
 
 class UpdateCateForm(forms.ModelForm):
-
     class Meta:
         model = Category
         fields = ['name']

@@ -12,6 +12,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 # ================= POST ======================
 
 class Posts(View):
+
     @staticmethod
     def get(request):
         lst_category = models.Category.objects.all()
@@ -34,20 +35,49 @@ class post_detail(View):
         if stuff.users_like.filter(id=self.request.user.id).exists():
             liked = True
 
+        # stuff_comment = get_object_or_404(models.Comment, id=request.POST.get('comment_id'))
+        # liked_comment = False
+        #
+        # if stuff_comment.users_comment.filter(id=self.request.user.id).exists():
+
+        liked_comment = []
+        for item in lst_comment:
+            if item.users_comment.filter(id=self.request.user.id).exists():
+                liked_comment.append(False)
+
         context = {'form_comment': form, 'lst_post_same': lst_post_same, 'post': post, 'lst_comment': lst_comment,
-                   'total_likes': total_likes, 'liked': liked}
+                   'total_likes': total_likes, 'liked': liked, 'liked_comment': liked_comment}
         return render(request, 'MediCom/post_content_detail.html', context)
 
-    def post(self, request, *args, **kwargs):
+    @staticmethod
+    def post(request, Post_Id, *args, **kwargs):
         if request.method == "POST":
             g = forms.CommentForm(request.POST)
             if g.is_valid():
                 g.save()
-                return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))  # page previous
+                return HttpResponseRedirect(reverse('post_detail', args=[str(Post_Id)]))  # page previous
+            elif request.POST["comment_id"]:
+                comment = get_object_or_404(models.Comment, id=request.POST.get('comment_id'))
+                comment.users_comment.add(request.user)
+                return HttpResponseRedirect(reverse('post_detail', args=[str(comment.post.id)]))
+            # elif request.POST["unlike_comment_id"]:
+            #     comment = get_object_or_404(models.Comment, id=request.POST.get('unlike_comment_id'))
+            #     if comment.users_comment.filter(id=request.user.id).exists():
+            #         comment.users_comment.remove(request.user)
+            #         return HttpResponseRedirect(reverse('post_detail', args=[str(comment.post.id)]))
             else:
                 return HttpResponse("Invalid !!!")
         else:
             return render(request, 'MediCom/post_content_detail.html')
+        # if request.method == "POST":
+        #     g = forms.CommentForm(request.POST)
+        #     if g.is_valid():
+        #         g.save()
+        #         return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))  # page previous
+        #     else:
+        #         return HttpResponse("Invalid !!!")
+        # else:
+        #     return render(request, 'MediCom/post_content_detail.html')
 
 
 class SiteAddPost(LoginRequiredMixin, CreateView):
@@ -79,6 +109,18 @@ def LikeView(request, pk):
         post.users_like.add(request.user)
         liked = True
     return HttpResponseRedirect(reverse('post_detail', args=[str(pk)]))  # page previous
+
+
+# def LikeCommentView(request, pk):
+#     comment = get_object_or_404(models.Comment, id=request.POST.get('comment_id'))
+#     liked = False
+#     if comment.users_comment.filter(id=request.user.id).exists():
+#         comment.users_comment.remove(request.user)
+#         liked = False
+#     else:
+#         comment.users_comment.add(request.user)
+#         liked = True
+#     return HttpResponseRedirect(reverse('post_detail', args=[str(pk)]))
 
 # ================= CATEGORY======================
 

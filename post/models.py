@@ -25,7 +25,6 @@ class Post(models.Model):
     img_main = models.ImageField(upload_to='post_picture', height_field=None, width_field=None, blank=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     body = RichTextField(null=True, blank=True, default="Body post")
-    something = models.IntegerField(default=0, blank=True)
     users_like = models.ManyToManyField(User)
 
     def total_likes(self):
@@ -40,12 +39,12 @@ class Post(models.Model):
 
 
 class Comment(models.Model):
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="Comment_as_author")
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     date = models.DateTimeField(default=timezone.datetime.now())
     content = models.CharField(max_length=2000)
-    vote = models.IntegerField(default=0, blank=True)
     # reply_comment = models.ForeignKey("self", on_delete=models.CASCADE, blank=True)
+    users_comment = models.ManyToManyField(User)
 
     def __str__(self):
         return self.content

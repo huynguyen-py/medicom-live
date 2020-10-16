@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView, LogoutView
 from django.shortcuts import redirect
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from django.views.generic import TemplateView, FormView
 from user.models import User
 from user.forms import MyLoginForm, RegisterForm
@@ -17,6 +17,7 @@ class AdminCvView(TemplateView):
 class SiteLoginView(LoginView):
     template_name = 'MediCom/user_login.html'
     form_class = MyLoginForm
+    success_url = reverse_lazy('home')
 
 
 class SiteProfileView(LoginRequiredMixin, TemplateView):

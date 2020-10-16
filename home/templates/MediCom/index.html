@@ -22,7 +22,7 @@
     <meta name="msapplication-TileImage" content="{% static 'MediCom/images/ms-icon-144x144.png' %}">
     <meta name="theme-color" content="#ffffff">
 
-    <title>Medical Comunity</title>
+    <title>Medical Community</title>
     <link rel="stylesheet" href="{% static 'MediCom/css/style_landing.css' %}">
 </head>
 <body style="background-image: url({% static 'MediCom/images/background_ld.png' %});">
@@ -35,7 +35,7 @@
             <nav>
                 <ul>
                     <li><a href="{% url 'home' %}">Home</a></li>
-                    <li><a href="">Medical diagnosis</a></li>
+                    <li><a href="{% url 'diagnosis' %}">Medical diagnosis</a></li>
                     <li><a href="{% url 'post' %}">Blog and Posts</a></li>
                 </ul>
             </nav>
@@ -68,24 +68,30 @@
         <div class="msg-container">
             <div id="slider">
                 <div class="msg-col">
-                    <h1>The Reasoning</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolorem corrupti reiciendis perspiciatis qui perferendis fuga exercitationem delectus modi, totam, amet illo voluptates. Blanditiis vel officiis exercitationem, temporibus eius quas.</p>
-                    <a href="">Learn More</a>
+                    <h1>Detect Cancer</h1>
+                    <p>More recently machine learning has been applied to cancer prognosis and prediction. This latter approach is
+                        particularly interesting as it is part of a growing trend towards personalized, predictive medicine</p>
+                    <a href="">Try now for free !!!</a>
                 </div>
                 <div class="msg-col">
-                    <h1>The Knowledge</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolorem corrupti reiciendis perspiciatis qui perferendis fuga exercitationem delectus modi, totam, amet illo voluptates. Blanditiis vel officiis exercitationem, temporibus eius quas.</p>
-                    <a href="">Learn More</a>
+                    <h1>The purpose</h1>
+                    <p>
+                        MediCom(Medical-Community) have been built by Huy Nguyen, this is his Graduation essay.
+                    </p>
+                    <a href="{% url 'home' %}">Let's discover now!</a>
                 </div>
                 <div class="msg-col">
-                    <h1>The Integration</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolorem corrupti reiciendis perspiciatis qui perferendis fuga exercitationem delectus modi, totam, amet illo voluptates. Blanditiis vel officiis exercitationem, temporibus eius quas.</p>
-                    <a href="">Learn More</a>
+                    <h1>Blog - Posts</h1>
+                    <p>We try to build a community for the student and the doctor.
+                        In there have a lot of posts, the blog, course,... and Now you can join in bellow to build it with us.</p>
+                    <a href="{% url 'post' %}">Let's go !!!</a>
                 </div>
-                 <div class="msg-col">
-                    <h1>The Learning</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolorem corrupti reiciendis perspiciatis qui perferendis fuga exercitationem delectus modi, totam, amet illo voluptates. Blanditiis vel officiis exercitationem, temporibus eius quas.</p>
-                    <a href="">Learn More</a>
+                <div class="msg-col">
+                    <h1>Website founder</h1>
+                    <p>I'm Huy Nguyen, 22 year old. I'm very love research something new and then is my first project.
+                        Thank for visited, I hope you will join with us by submit this button bellow. and my info be anchor
+                        right top near avatar  </p>
+                    <a href="https://www.facebook.com/huy1706701" target="_blank">Contact...</a>
                 </div>
             </div>
             

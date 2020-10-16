@@ -31,3 +31,7 @@ class Home(View):
 
         return render(request, 'MediCom/home_index.html', {'posts': posts, 'list_cat': lst_category})
 
+
+class Diagnosis(View):
+    def get(self, request):
+        return render(request, 'MediCom/Diagnosis.html')

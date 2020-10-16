@@ -16,7 +16,7 @@
 
 {% block content %}
     <div class="container-fluid">
-        <form class="form-group shadow-lg p-4 m-3 bg-light" action="" method="POST" enctype="multipart/form-data">
+        <form class="form-post-add form-group shadow-lg p-4 m-3 bg-light" action="" method="POST" enctype="multipart/form-data">
             <center><h1>Add New Post</h1></center>
             {% csrf_token %}
             {{form.media}}

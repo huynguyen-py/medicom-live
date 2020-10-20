@@ -45,22 +45,15 @@ class post_detail(View):
         stuff = get_object_or_404(models.Post, id=self.kwargs['Post_Id'])
         total_likes = stuff.total_likes()
 
+         # check like or unlike post
         liked = False
         if stuff.users_like.filter(id=self.request.user.id).exists():
             liked = True
 
-        # stuff_comment = get_object_or_404(models.Comment, id=request.POST.get('comment_id'))
-        # liked_comment = False
-        #
-        # if stuff_comment.users_comment.filter(id=self.request.user.id).exists():
 
-        liked_comment = []
-        for item in lst_comment:
-            if item.users_comment.filter(id=self.request.user.id).exists():
-                liked_comment.append(False)
 
         context = {'form_comment': form, 'lst_post_same': lst_post_same, 'post': post, 'comments': comments,
-                   'total_likes': total_likes, 'liked': liked, 'liked_comment': liked_comment}
+                   'total_likes': total_likes, 'liked': liked}
         return render(request, 'MediCom/post_content_detail.html', context)
 
     @staticmethod

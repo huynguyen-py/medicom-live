@@ -3,10 +3,6 @@
     padding: 0;
 }
 
-.service {
-    margin-top: 95px;
-}
-
 .time-work {
     margin-top: 95px;
 }
@@ -28,7 +24,7 @@ html, body {
 }
 
 .navbar {
-    background: linear-gradient(to top, #9a9ba8 30%, #473C8B 80%) !important;
+    background: linear-gradient(to top, #9a9ba8 30%, #4F4F4F 80%) !important;
     opacity: 0.8;
 }
 .navbar li a {
@@ -150,7 +146,7 @@ hr.light {
     .carousel-caption {
         top: 10%;
     }
-    
+
     .carousel-caption h1{
         font-size: 250%;
     }
@@ -165,6 +161,9 @@ hr.light {
     }
 }
 /*Category*/
+
+
+
 .category_list a{
     color: black;
     border: 1px solid black;
@@ -189,27 +188,29 @@ hr.light {
     text-align: center;
     font-family: 'Ubuntu';
     margin-bottom: 5px;
-	font-size:36px;
-	font-weight:500;
+	font-size:40px;
+	font-weight:800;
 	line-height:48px;
-	color: #1F1F1F;
+	color: white;
 	position: relative;
 	z-index: 9;
 	padding-bottom:3px;
 }
 
 .section_title{
-    font-size:16px;
-	font-weight: 300;
+    font-size:24px;
+	font-weight: 400;
 	line-height: 28px;
-	color: #4D4D4D;
+	color: white;
 	margin-bottom: 13px;
 	font-family: "Poppins", sans-serif
 }
 
 .category_card{
-    margin: 5px 0px;
+    margin: 10px 10px;
+    opacity: 0.9;
 }
+
 
 /*Trending */
 
@@ -218,13 +219,23 @@ hr.light {
      text-align: left !important;
      padding-right: 30px !important;
 }
+/* about-me*/
+.about-me{
+    background-style: center;
+    height: auto;
+}
+
+.about-me .content{
+    opacity: 0.8;
+    bottom: 20px;
+}
 
 /*FOOTER*/
 footer {
-	background: linear-gradient(to bottom, #9a9ba8 30%, #473C8B 80%);
+	background: linear-gradient(to bottom, #9a9ba8 10%, #4F4F4F 90%);
 	color: white;
-	opacity: 0.9;
 	width: 100% !important;
+	position: relative;
 }
 
 .time-work, .service{
@@ -233,4 +244,5 @@ footer {
     padding: 10px 0px;
     margin-bottom: 15px;
 }
+
 

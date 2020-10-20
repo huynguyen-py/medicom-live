@@ -16,7 +16,7 @@
             <ul class="list-group mb-10 list-group-flush">
                 {% for item in list_cat.all %}
                 <a href="{% url 'category_detail' item.id%}"
-                   class="list-group-item">
+                   class="list-group-item list-group-item-dark">
                     <div class="float-left">
                         {{ item.name }}
                     </div>

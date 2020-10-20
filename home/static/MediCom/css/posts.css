@@ -20,22 +20,23 @@
 	margin-top: 10px;
 }
 .show-list a{
-	color: black;
+	color: black !important;
 	border: 1px solid black;
 	padding: 15px 5px;
 }
 .category__title h3{
 	text-align: center;
-	color: gray;
+	color: black;
+	font-weight:600;
 }
 .list-group{
-	border: 1px solid gray;
 	margin-bottom: 30px;
-	position: relative;
 }
 .list-group-item{
 	text-align: center;
 	font-size: 13px;
+	color: white;
+    text-decoration: none;
 }
 .list-group-item:hover{
 	background: black;
@@ -57,11 +58,16 @@
 	margin-bottom: 20px;
  }
 
-.footer{
-	background-color: #3f3f3f;
-	color: #d5d5d5;
-	margin-top: -20px;
+.btn-title-cat {
+    background: linear-gradient(to top, #9a9ba8 30%,#4F4F4F 80%) !important; /* W3C */
 }
+
+.btn-title-cat a {
+    color: white;
+    text-decoration: none;
+}
+
+
 .cat_title{
 	margin: 1em 0 0.5em 0;
 	color: #343434;
@@ -71,6 +77,19 @@
 	line-height: 56px;
 	text-transform: uppercase;
 	text-shadow: 0 2px white, 0 3px #777;
+}
+
+.table{
+    width:90% !important;
+}
+.table-responsive a{
+    text-decoration: none !important;
+    color: #1d2124 !important;
+    font-weight:300 !important;
+}
+
+.content-post{
+    margin: 10px;
 }
 
 .form-cat-add, .form-cat-delete, .form-cat-update{

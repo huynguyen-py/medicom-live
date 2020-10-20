@@ -17,7 +17,7 @@ class Home(View):
         lst_category = models.Category.objects.all()
 
         lst_post = models.Post.objects.all().order_by('-date')# get list Post and sort them
-        paginator = Paginator(lst_post, 3)  # Show 3 contacts mỗi page
+        paginator = Paginator(lst_post, 3)  # Show 3 post mỗi page
         page_number = request.GET.get("page_number")
 
         try:

@@ -10,19 +10,19 @@
 {% endblock %}
 
 {% block breadcrumbs %}
-    <ul class="breadcrumb">
-      <li class="breadcrumb-item"><a href="#">Home</a></li>
-      <li class="breadcrumb-item active">Posts</li>
-    </ul>
+<!--    <ul class="breadcrumb">-->
+<!--      <li class="breadcrumb-item"><a href="#">Home</a></li>-->
+<!--      <li class="breadcrumb-item active">Posts</li>-->
+<!--    </ul>-->
 {% endblock %}
 
 {% block content %}
-    <div class="container-fluid videos-list p-3">
+    <div class="container-fluid p-3" >
         {% if list_cat %}
         {% for item in list_cat.all %}
         <div class="clearfix">
             <a href="{% url 'category_detail' item.id%}">
-                <button type="button" class="btn btn-light btn-block btn-lg key-trending"><div class="spinner-grow spinner-grow-sm p-2"></div>
+                <button type="button" class="btn-title-cat btn btn-primary btn-block btn-lg key-trending"><div class="spinner-grow spinner-grow-sm p-2"></div>
                 {{ item.name }}
                     {% if user.is_superuser %}
                     <div class="float-right ml-3">

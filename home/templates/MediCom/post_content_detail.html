@@ -10,15 +10,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
     <link href="{% static 'MediCom/css/posts.css' %}" rel="stylesheet">
     <link href="{% static 'MediCom/css/style.css' %}" rel="stylesheet">
-    <link href="{% static 'MediCom/css/post_detail.css' %}" rel="stylesheet">
 {% endblock %}
 
 
 {% block content %}
-<div class="container-fluid">
-    <div class="content-post shadow-lg p-4 m-3 bg-light">
-        <div class="header_post p-4 row">
-            <div class="col-lg-6 col-md-6 col-xs-12 p-4">
+    <div class="content-post shadow-lg pl-4 bg-light">
+        <div class="header_post row" >
+            <div class="col-lg-6 col-md-6 col-xs-12 pt-4">
                 <h2>{{ post.title }}</h2>
                 <ul>
                     <li>Author: <a href=""> {{ post.author }}</a></li>
@@ -44,13 +42,12 @@
                             {% endif %}
                 </form>
             </div>
-            <div class="col-6">
+            <div class="col-6 p-4" >
                 <img class="img-fluid float-right" src="{{ post.img_main.url }}" alt="" width="200px">
             </div>
 
         </div>
         {{post.body|safe}}
-    </div>
 
     <!-- same category post-->
     <div class="table-responsive">
@@ -65,7 +62,7 @@
         <tbody>
             {% for item in lst_post_same%}
             <tr>
-                <td><a href="{% url 'post_detail' item.id %}">{{item.title}}</a></td>
+                <td><a href="{% url 'post_detail' item.id %}"> {{item.title}}</a></td>
                 <td>{{item.author}}</td>
                 <td>{{item.date}}</td>
             </tr>
@@ -73,25 +70,9 @@
         </tbody>
       </table>
     </div>
+
 </div>
 
-{% endblock %}
-
-{% block something %}
-    <div class="container-fluid p-3 post_something">
-        <div class="image">
-            <img src="{% static 'MediCom/images/QC_something.PNG' %}" alt="" class="img-fluid">
-        </div>
-        <div class="post_trending pt-4">
-            <h4>Trending</h4>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">First item</li>
-                <li class="list-group-item">Second item</li>
-                <li class="list-group-item">Third item</li>
-                <li class="list-group-item">Fourth item</li>
-            </ul>
-        </div>
-    </div>
 {% endblock %}
 
 
@@ -111,7 +92,7 @@
             {% else %}
             <a class="text-decoration-none" href="{% url 'login' %}">Login to add your comment for this post</a>
             {% endif %}
-            {% for comment in lst_comment%}
+            {% for comment in comments%}
             <div class="media p-3">
               <img src="{% static 'MediCom/images/doctor-member.jpg' %}" alt="John Doe" class="mr-3 mt-3 rounded-circle"
                    style="width:60px;">

@@ -1,4 +1,5 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import CreateView, UpdateView, DeleteView
 from .forms import CreatePostForm, UpdatePostForm, CreateCateForm, UpdateCateForm
@@ -25,7 +26,20 @@ class post_detail(View):
     def get(self, request, Post_Id):
         post = models.Post.objects.get(pk=Post_Id)
         lst_post_same = models.Post.objects.filter(category=post.category)
+
         lst_comment = models.Comment.objects.filter(post=post.id).order_by('-date')  # get list comment and sort them
+        paginator = Paginator(lst_comment, 5)  # Show 5 comment mỗi page
+        page_number = request.GET.get("page_number")
+
+        try:
+            comments = paginator.page(page_number)
+        except PageNotAnInteger:
+            # Nếu page_number không thuộc kiểu integer, trả về page đầu tiên
+            comments = paginator.page(1)
+        except EmptyPage:
+            # Nếu page không có item nào, trả về page cuối cùng
+            comments = paginator.page(paginator.num_pages)
+
         form = forms.CommentForm()
 
         stuff = get_object_or_404(models.Post, id=self.kwargs['Post_Id'])
@@ -45,7 +59,7 @@ class post_detail(View):
             if item.users_comment.filter(id=self.request.user.id).exists():
                 liked_comment.append(False)
 
-        context = {'form_comment': form, 'lst_post_same': lst_post_same, 'post': post, 'lst_comment': lst_comment,
+        context = {'form_comment': form, 'lst_post_same': lst_post_same, 'post': post, 'comments': comments,
                    'total_likes': total_likes, 'liked': liked, 'liked_comment': liked_comment}
         return render(request, 'MediCom/post_content_detail.html', context)
 

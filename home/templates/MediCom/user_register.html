@@ -12,7 +12,7 @@
 {% block title %} Sign Up {% endblock %}
 
 {% block content %}
-<div class="container">
+<div class="container h-100">
 		<div class="hero mt-5">
             <div class="form-box mx-auto shadow-lg p-4 m-3 bg-light">
                 <div class="button-box">
@@ -38,7 +38,7 @@
 
 
 					<input type="checkbox" class="check-box"  required="true"><span>I agree to the terms & conditions</span>
-					<button type="submit" class="submit-btn" onclick="myFunction()">Registers</button>
+					<button type="submit" class="submit-btn">Registers</button>
                     {{form.errors}}
 				</form>
 			</div>
@@ -62,15 +62,6 @@
             function login(){
                 x.style.left="450px";
                 y.style.left="0px";
-            }
-
-
-            function myFunction() {
-              if (x.checkValidity()) {
-                alert("Successful!\n"+
-                "Thank you, Welcome to Medical Community !!!\n"+
-                "Now, you can login in bellow." );
-              }
             }
 </script>
 

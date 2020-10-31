@@ -239,6 +239,7 @@ footer {
 }
 
 .time-work, .service{
+    margin-top: 3rem !important;
     border-top: 1px solid white;
     border-bottom: 1px solid white;
     padding: 10px 0px;
